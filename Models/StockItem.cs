@@ -68,16 +68,16 @@ public partial class StockItem : ObservableObject
 
 	public decimal? PercentageChange => PriceChange / Price * 100;
 
-	public Color PriceChangeColor => PriceChange > 0 ? Colors.Green : (PriceChange < 0 ? Colors.Red : Colors.Gray);
+	public Color PriceChangeColor => PriceChange > 0 ? Color.FromArgb("#21b559") : (PriceChange < 0 ? Color.FromArgb("#f87171") : Colors.Gray);
 	public string PriceChangeDisplay => PriceChange > 0 ? $"+{PriceChange:F2} ({PercentageChange:F2}%)" : $"{PriceChange:F2} ({PercentageChange:F2}%)";
 	public string PatternDisplay => string.IsNullOrEmpty(Pattern) ? "No patterns detected" : $"- {Pattern}";
 
-	public Color PatternDisplayColor => !string.IsNullOrEmpty(Pattern) ? Colors.Red : Colors.Gray;
+	public Color PatternDisplayColor => !string.IsNullOrEmpty(Pattern) ? Color.FromArgb("#f87171") : Colors.Gray;
 
 	public Color MarketRegimeColor => MarketRegime?.ToLower() switch
 	{
-		"high volatility" => Colors.Yellow,
-		"low Volatility" => Colors.Green,
+		"high volatility" => Color.FromArgb("#ecc117"),
+		"low Volatility" => Color.FromArgb("#21b559"),
 		_ => Colors.Gray
 	};
 

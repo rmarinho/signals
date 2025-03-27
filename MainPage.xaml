@@ -44,6 +44,10 @@
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
@@ -194,7 +198,7 @@
                            FontSize="18"/>
 
                     <HorizontalStackLayout Grid.Row="12"
-                            Grid.Column="3"
+                                           Grid.Column="3"
                                            Spacing="5"
                                            HorizontalOptions="End">
                         <Button Text="D"
@@ -244,7 +248,7 @@
                              HeightRequest="1"
                              BackgroundColor="#252e3d"/>
 
-                     <Label Grid.Row="18"
+                    <Label Grid.Row="18"
                            Text="Position Sizing"
                            TextColor="#FF6D6D6D"
                            Grid.ColumnSpan="3"
@@ -256,12 +260,45 @@
                            Grid.Column="0"
                            FontSize="18"/>
 
-                      <Label Grid.Row="19"
+                    <Label Grid.Row="19"
                            Text="Adjusted"
                            HorizontalOptions="Start"
                            TextColor="#FF6D6D6D"
                            Grid.Column="3"
                            FontSize="18"/>
+
+                    <Label Grid.Row="20"
+                           Text="{Binding BaseSize}"
+                           Grid.Column="0"
+                           FontSize="20"/>
+
+                    <Label Grid.Row="20"
+                           Text="{Binding AdjustedSize}"
+                           HorizontalOptions="Start"
+                           Grid.Column="3"
+                           FontSize="20"/>
+
+                    <Label Grid.Row="21"
+                           Grid.ColumnSpan="3">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Risk Factor : "
+                                      FontSize="20"
+                                      TextColor="#FF6D6D6D"/>
+                                <Span Text="{Binding RiskFactor}"
+                                      FontSize="20"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+
+                    <BoxView HorizontalOptions="Fill"
+                             VerticalOptions="Start"
+                             Margin="-10,10,-10,10"
+                             Grid.Row="22"
+                             Grid.ColumnSpan="3"
+                             HeightRequest="1"
+                             BackgroundColor="#252e3d"/>
+
                 </Grid>
             </Border>
         </DataTemplate>
