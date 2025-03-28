@@ -6,9 +6,27 @@
     xmlns:pages="clr-namespace:signals.Pages"
     Title="signals">
 
-    <ShellContent
-        Title="Technical"
-        ContentTemplate="{DataTemplate pages:TechnicalPage}"
-        Route="TechnicalPage" />
+    <Tab>
+        <ShellContent
+            Title="Technical"
+            ContentTemplate="{DataTemplate pages:TechnicalPage}"
+            Route="technical"/>
+        <ShellContent
+            Title="Market"
+            ContentTemplate="{DataTemplate pages:MarketPage}"
+            Route="market"/>
+        <ShellContent
+            Title="Price"
+            ContentTemplate="{DataTemplate pages:PricePage}"
+            Route="price"/>
+        <ShellContent
+            Title="SEC"
+            ContentTemplate="{DataTemplate pages:SECPage}"
+            Route="sec"/>
 
+        <ShellContent
+            Title="News"
+            ContentTemplate="{DataTemplate pages:NewsPage}"
+            Route="news"/>
+    </Tab>
 </Shell>

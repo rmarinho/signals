@@ -2,6 +2,7 @@
 using LocalizationResourceManager.Maui;
 using Microsoft.Extensions.Logging;
 using Serilog;
+using signals.Pages;
 using signals.Services;
 using signals.ViewModels;
 
@@ -16,14 +17,14 @@ public static class MauiProgram
 	public static MauiApp CreateMauiApp()
 	{
 		var builder = MauiApp.CreateBuilder();
-		
+
 		builder.Services.AddSerilog(
-        	new LoggerConfiguration()
-            	.WriteTo.File(Path.Combine(FileSystem.Current.AppDataDirectory, "logs", "log.txt"),
+			new LoggerConfiguration()
+				.WriteTo.File(Path.Combine(FileSystem.Current.AppDataDirectory, "logs", "log.txt"),
 				 	rollingInterval: RollingInterval.Day,
-                	fileSizeLimitBytes: 10000000)
-            	.CreateLogger()
-    	);
+					fileSizeLimitBytes: 10000000)
+				.CreateLogger()
+		);
 
 		builder
 			.UseMauiApp<App>()
@@ -41,10 +42,14 @@ public static class MauiProgram
 		builder.Services.AddSingleton<IDataService, DataService>();
 
 		builder.Services.AddSingleton<IDeviceInfo>(DeviceInfo.Current);
-		
+
 		builder.Services.AddSingleton<MainViewModel>();
-		
-		builder.Services.AddSingleton<MainPage>();
+
+		builder.Services.AddSingleton<TechnicalPage>();
+		builder.Services.AddSingleton<MarketPage>();
+		builder.Services.AddSingleton<NewsPage>();
+		builder.Services.AddSingleton<PricePage>();
+		builder.Services.AddSingleton<SECPage>();
 		builder.Services.AddSingleton<AppShell>();
 #if DEBUG
 		builder.Logging.AddDebug();
