@@ -55,6 +55,7 @@ public partial class StockItem : ObservableObject
 	string? _enhancedAnalysis;
 
 	[ObservableProperty]
+	[NotifyPropertyChangedFor(nameof(EnhancedAnalysisValueColor))]
 	double? _enhancedAnalysisValue;
 
 	[ObservableProperty]
@@ -80,6 +81,8 @@ public partial class StockItem : ObservableObject
 		"low Volatility" => Color.FromArgb("#21b559"),
 		_ => Colors.Gray
 	};
+
+	public Color EnhancedAnalysisValueColor => EnhancedAnalysisValue > 0 ? Color.FromArgb("#21b559") : (EnhancedAnalysisValue < 0 ? Color.FromArgb("#f87171") : Colors.Gray);
 
 
 	public string ConfidenceDisplay => $"Confidence: {Confidence:P1}";
