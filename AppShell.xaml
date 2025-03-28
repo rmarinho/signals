@@ -3,12 +3,12 @@
     x:Class="signals.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:signals"
+    xmlns:pages="clr-namespace:signals.Pages"
     Title="signals">
 
     <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+        Title="Technical"
+        ContentTemplate="{DataTemplate pages:TechnicalPage}"
+        Route="TechnicalPage" />
 
 </Shell>

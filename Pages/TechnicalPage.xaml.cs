@@ -1,10 +1,10 @@
 ﻿using signals.ViewModels;
 
-namespace signals;
+namespace signals.Pages;
 
-public partial class MainPage : ContentPage
+public partial class TechnicalPage : ContentPage
 {
-	public MainPage(MainViewModel mainViewModel)
+	public TechnicalPage(MainViewModel mainViewModel)
 	{
 		InitializeComponent();
 		BindingContext = mainViewModel;
